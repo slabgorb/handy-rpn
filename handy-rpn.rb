@@ -7,8 +7,8 @@ class Calculator
   QUIT_FLAG = 'q'
   HELP_FLAG = '?'
 
-  def initialize(strict = false)
-    @calc = HandyRPN.new(strict)
+  def initialize
+    @calc = HandyRPN.new
   end
 
   def self.instructions
@@ -18,6 +18,10 @@ class Calculator
     to quit, enter 'q',
     for this help text, enter ?
     END_INSTRUCTIONS
+  end
+
+  def pretty_format(number)
+    (number % 1 == 0 ? number.to_i : number.to_f).to_s
   end
 
   def main
@@ -44,7 +48,7 @@ class Calculator
             end
           end
         end
-        puts "Calculaton: (#{rpn.join(' ')}) Answer: " + "%.2g" % @calc.calculate(rpn.join(" "))
+        puts "Calculaton: (#{rpn.join(' ')}) Answer: " + pretty_format(@calc.calculate(rpn.join(" ")))
       rescue SystemExit, Interrupt
         exit
       rescue Exception => e
