@@ -13,8 +13,15 @@ describe ReversePolishCalculator do
   end
 
   it "handles problem with invalid operand count" do
-    expect{  @calc.parse('1 +')}.to raise_error("Invalid Reverse Polish Notation format: not enough operands at token 2")
+    expect{  @calc.parse('1 +')}.to raise_error("Invalid Reverse Polish Notation format: not enough operands at token 2 +")
   end
 
+  it "handles problem with operand after final operator" do
+    expect{  @calc.parse('1 1 + 1')}.to raise_error("Invalid Reverse Polish Notation format: invalid syntax")
+  end
+
+  it "does addition" do
+    expect(@calc.parse("1 1 +")).to eq(2)
+  end
 
 end
