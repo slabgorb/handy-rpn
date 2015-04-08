@@ -1,9 +1,10 @@
 #!/usr/bin/env ruby
 
 class ReversePolishCalculator
-  NICE_ERROR =
 
-  def initialize
+
+  def initialize(strict = false)
+    @strict = strict
     @stack = []
   end
 
@@ -13,6 +14,7 @@ class ReversePolishCalculator
 
   # parses a RPN string, e.g.
   # (2 3 + 5 + 10 -)
+  # Invalid RPN:
   # (2 2 2 * * 3 +)
   def parse(input)
     input.strip!
@@ -21,19 +23,24 @@ class ReversePolishCalculator
     tokens = input.split(/\s/)
     # make sure all input is valid
     tokens.each_with_index do |token, index|
-      raise error("syntax error at token #{index + 1} '#{token}'") unless token =~ /\d+|[*-\/+]/
+      raise error("syntax error at token ##{index + 1} '#{token}'") unless token =~ /\d+|[*-\/+]/
       # if this is an operand, add it to the stack
       if token =~ /\d/
         @stack << token.to_i
       else
-        raise error("not enough operands at token #{index + 1} #{token}") if @stack.length < 2
+        if @stack.length < 2
+          if @strict
+            raise error("not enough operands at token ##{index + 1} '#{token}'")
+          else
+            puts "Warning: not enough operands at token ##{index + 1} '#{token}': skipping token"
+          end
+        end
         # if it is an operator, take the operands off the stack and apply the operator to them
         while @stack.length > 1
           first, second = @stack.pop(2)
           @stack << first.send(token.to_sym, second)
         end
       end
-
     end
     raise error("invalid syntax") unless @stack.length == 1
     @stack.pop
