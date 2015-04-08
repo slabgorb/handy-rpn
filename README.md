@@ -42,7 +42,8 @@ Example run:
   c
   Calculation: (2 2 + 5 +) Answer: 18
   New calculation:
-
+  q
+  Done
 
 From Wikipedia: http://en.wikipedia.org/wiki/Reverse_Polish_notation
 
