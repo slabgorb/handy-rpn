@@ -61,5 +61,8 @@ describe HandyRPN do
     ")).to eq(54)
   end
 
+  it "handles floats" do
+    expect(@calc.parse("1.1 2.2 +")).to be_within(0.001).of(3.3)
+  end
 
 end

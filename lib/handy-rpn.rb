@@ -16,12 +16,12 @@ class HandyRPN
   def parse(input)
     raise error("length is zero!") unless input.length > 0
     # break input string on whitespace for tokens.
-    tokens = input.strip.split(/\s+/m)
+    tokens = input.strip.gsub(/\(|\)/,'').split(/\s+/m)
     tokens.each_with_index do |token, index|
       raise error("syntax error at token ##{index + 1} '#{token}'") unless token =~ /\d+|[*-\/+]/
       # if this is an operand, add it to the stack
       if token =~ /\d/
-        @stack << token.to_i
+        @stack << token.to_f
       else
         raise error("not enough operands at token ##{index + 1} '#{token}'") if (@stack.length < MIN_TOKENS && @strict)
         # if it is an operator, take the operands off the stack and apply the operator to them
