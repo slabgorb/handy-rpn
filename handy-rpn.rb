@@ -48,7 +48,7 @@ class Calculator
             end
           end
         end
-        puts "Calculation: (#{rpn.join(' ')}) Answer: " + pretty_format(@calc.calculate(rpn.join(" ")))
+        puts "Calculation: (#{rpn.join(' ').gsub(/\)|\)/,'')}) Answer: " + pretty_format(@calc.calculate(rpn.join(" ")))
       rescue SystemExit, Interrupt
         exit
       rescue Exception => e
