@@ -1,10 +1,14 @@
 #!/usr/bin/env ruby
 
 class ReversePolishCalculator
-  NICE_ERROR = "Invalid Reverse Polish Notation format"
+  NICE_ERROR =
 
   def initialize
-    @register = []
+    @stack = []
+  end
+
+  def error(extra_message)
+    ArgumentError.new("Invalid Reverse Polish Notation format: " + extra_message)
   end
 
   # parses a RPN string, e.g.
@@ -12,15 +16,27 @@ class ReversePolishCalculator
   # (2 2 2 * * 3 +)
   def parse(input)
     input.strip!
-    raise ArgumentError.new(NICE_ERROR + ": length is zero!") unless input.length > 0
-    # break input string on space for tokens.
-    tokens = input.split(' ')
+    raise error("length is zero!") unless input.length > 0
+    # break input string on whitespace for tokens.
+    tokens = input.split(/\s/)
     # make sure all input is valid
     tokens.each_with_index do |token, index|
-      unless token =~ /\d+|[*-\/+]/
-        raise ArgumentError.new(NICE_ERROR + ": syntax error at token #{index + 1} '#{token}'")
+      raise error("syntax error at token #{index + 1} '#{token}'") unless token =~ /\d+|[*-\/+]/
+      # if this is an operand, add it to the stack
+      if token =~ /\d/
+        @stack << token.to_i
+      else
+        raise error("not enough operands at token #{index + 1} #{token}") if @stack.length < 2
+        # if it is an operator, take the operands off the stack and apply the operator to them
+        while @stack.length > 1
+          first, second = @stack.pop(2)
+          @stack << first.send(token.to_sym, second)
+        end
       end
+
     end
+    raise error("invalid syntax") unless @stack.length == 1
+    @stack.pop
   end
 
 end
