@@ -4,21 +4,20 @@ A Handy (see what I did there) Reverse Polish Notation Calculator!
 
 
 
-To run tests:
+## Tests
 
     git clone https://github.com/slabgorb/handy-rpn.git
     cd handy-rpn
     bundle install
     bundle exec rspec -fd
 
-To run application:
+## Running Application
 
     git clone https://github.com/slabgorb/handy-rpn.git
     cd handy-rpn
     ./handy-rpn
 
-
-Example run:
+## Example Run
 
     handy-rpn|master⚡ ⇒ ./handy-rpn
         Enter calculation, you may use multiple lines.
