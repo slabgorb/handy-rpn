@@ -1,8 +1,5 @@
-#!/usr/bin/env ruby
-
 class ReversePolishCalculator
-
-
+  MIN_TOKENS = 2
   def initialize(strict = false)
     @strict = strict
     @stack = []
@@ -26,15 +23,11 @@ class ReversePolishCalculator
       if token =~ /\d/
         @stack << token.to_i
       else
-        if @stack.length < 2
-          if @strict
-            raise error("not enough operands at token ##{index + 1} '#{token}'")
-          end
-        end
+        raise error("not enough operands at token ##{index + 1} '#{token}'") if (@stack.length < MIN_TOKENS && @strict)
         # if it is an operator, take the operands off the stack and apply the operator to them
         while @stack.length > 1
-          first, second = @stack.pop(2)
-          @stack << first.send(token.to_sym, second)
+          first, second = @stack.pop(MIN_TOKENS)
+          @stack << first.send(token, second)
         end
       end
     end
