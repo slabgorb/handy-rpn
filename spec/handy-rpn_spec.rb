@@ -22,27 +22,27 @@ describe HandyRPN do
   end
 
 
-  it "does addition" do
+  it "does addition (+)" do
     expect(@calc.calculate("1 1 +")).to eq(2)
   end
 
-  it "does subtraction" do
+  it "does subtraction (-)" do
     expect(@calc.calculate("1 1 -")).to eq(0)
   end
 
-  it "does multiplication" do
+  it "does multiplication (*)" do
     expect(@calc.calculate("2 2 *")).to eq(4)
   end
 
-  it "does division" do
+  it "does division (/)" do
     expect(@calc.calculate("9 3 /")).to eq(3)
   end
 
-  it "does modulo" do
+  it "does modulo (%)" do
     expect(@calc.calculate("20 10 %")).to eq(0)
   end
 
-  it "does powers (hehe sneaky!)" do
+  it "does exponents (hehe sneaky!) (**)" do
     expect(@calc.calculate("2 5 **")).to eq(32)
   end
 
