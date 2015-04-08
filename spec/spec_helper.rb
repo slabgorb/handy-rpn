@@ -1,4 +1,4 @@
-require_relative "../lib/reverse-polish-calculator.rb"
+require_relative "../lib/handy-rpn.rb"
 
 
 
