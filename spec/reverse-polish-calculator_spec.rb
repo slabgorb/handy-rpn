@@ -12,4 +12,9 @@ describe ReversePolishCalculator do
     expect{  @calc.parse('foo bar') }.to raise_error("Invalid Reverse Polish Notation format: syntax error at token 1 'foo'")
   end
 
+  it "handles problem with invalid operand count" do
+    expect{  @calc.parse('1 +')}.to raise_error("Invalid Reverse Polish Notation format: not enough operands at token 2")
+  end
+
+
 end
