@@ -1,7 +1,8 @@
 require 'spec_helper'
 describe ReversePolishCalculator do
   before :each do
-    @calc = ReversePolishCalculator.new
+    @calc = ReversePolishCalculator.new(true)
+    @calc_not_strict = ReversePolishCalculator.new(false)
   end
 
   it "handles problems with no input" do
@@ -9,11 +10,11 @@ describe ReversePolishCalculator do
   end
 
   it "handles problems with garbage input" do
-    expect{  @calc.parse('foo bar') }.to raise_error("Invalid Reverse Polish Notation format: syntax error at token 1 'foo'")
+    expect{  @calc.parse('foo bar') }.to raise_error("Invalid Reverse Polish Notation format: syntax error at token #1 'foo'")
   end
 
   it "handles problem with invalid operand count" do
-    expect{  @calc.parse('1 +')}.to raise_error("Invalid Reverse Polish Notation format: not enough operands at token 2 +")
+    expect{  @calc.parse('1 +')}.to raise_error("Invalid Reverse Polish Notation format: not enough operands at token #2 '+'")
   end
 
   it "handles problem with operand after final operator" do
@@ -22,6 +23,18 @@ describe ReversePolishCalculator do
 
   it "does addition" do
     expect(@calc.parse("1 1 +")).to eq(2)
+  end
+
+  it "does multiple operations" do
+    expect(@calc.parse("2 3 + 5 + 10 -")).to eq(0)
+  end
+
+  it "fudges sloppy syntax in non-strict mode" do
+    expect(@calc_not_strict.parse("2 2 2 * * 3 +")).to eq(11)
+  end
+
+  it "handles on sloppy syntax in non-strict mode" do
+    expect(@calc.parse("2 2 2 * * 3 +")).to eq(11)
   end
 
 end
