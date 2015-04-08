@@ -46,7 +46,11 @@ describe ReversePolishCalculator do
 
   end
 
-  it "handles a bunch of stuff" do
+  it "handles repeated operands in strict mode" do
+    expect(@calc.parse("2 2 2 2 +")).to eq(8)
+  end
+
+  it "handles a fancier example" do
     expect(@calc.parse("
          5
          7
