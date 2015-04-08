@@ -1,4 +1,4 @@
-class ReversePolishCalculator
+class HandyRPN
   MIN_TOKENS = 2
   def initialize(strict = false)
     @strict = strict

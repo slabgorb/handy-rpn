@@ -1,8 +1,8 @@
 require 'spec_helper'
-describe ReversePolishCalculator do
+describe HandyRPN do
   before :each do
-    @calc = ReversePolishCalculator.new(true)
-    @calc_not_strict = ReversePolishCalculator.new(false)
+    @calc = HandyRPN.new(true)
+    @calc_not_strict = HandyRPN.new(false)
   end
 
   it "handles problems with no input" do
