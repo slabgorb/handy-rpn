@@ -29,8 +29,6 @@ class ReversePolishCalculator
         if @stack.length < 2
           if @strict
             raise error("not enough operands at token ##{index + 1} '#{token}'")
-          else
-            puts "Warning: not enough operands at token ##{index + 1} '#{token}': skipping token"
           end
         end
         # if it is an operator, take the operands off the stack and apply the operator to them
