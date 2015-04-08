@@ -6,7 +6,7 @@ From Wikipedia: http://en.wikipedia.org/wiki/Reverse_Polish_notation
     *   If the token is a value
         *   Push it onto the stack.
     *   Otherwise, the token is an operator (operator here includes both operators and functions).
-        *   It is known_[a priori](/wiki/A_priori_and_a_posteriori "A priori and a posteriori")_ that the operator takes**n** arguments.
+        *   It is known that the operator takes**n** arguments.
         *   If there are fewer than**n** values on the stack
             *   **(Error)** The user has not input sufficient values in the expression.
         *   Else, Pop the top**n** values from the stack.
