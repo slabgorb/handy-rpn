@@ -42,6 +42,18 @@ Example run:
     c
     Calculation: (2 2 + 5 +) Answer: 18
     New calculation:
+    2 2 **
+    c
+    Calculation: (2 2 **) Answer: 4
+    New calculation:
+    6 3 %
+    c
+    Calculation: (6 3 %) Answer: 0
+    New calculation:
+    6 4 %
+    c
+    Calculation: (6 4 %) Answer: 2
+    New calculation:
     q
     Done
 
