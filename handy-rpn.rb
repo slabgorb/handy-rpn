@@ -44,7 +44,7 @@ class Calculator
             end
           end
         end
-        puts "Calculaton: (#{rpn.join(' ')}) Answer: " + "%.2g" % @calc.parse(rpn.join(" "))
+        puts "Calculaton: (#{rpn.join(' ')}) Answer: " + "%.2g" % @calc.calculate(rpn.join(" "))
       rescue SystemExit, Interrupt
         exit
       rescue Exception => e

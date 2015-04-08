@@ -13,12 +13,12 @@ class HandyRPN
   # (2 3 + 5 + 10 -)
   # Invalid RPN:
   # (2 2 2 * * 3 +)
-  def parse(input)
+  def calculate(input)
     raise error("length is zero!") unless input.length > 0
     # break input string on whitespace for tokens.
     tokens = input.strip.gsub(/\(|\)/,'').split(/\s+/m)
     tokens.each_with_index do |token, index|
-      raise error("syntax error at token ##{index + 1} '#{token}'") unless token =~ /\d+|[*-\/+]/
+      raise error("syntax error at token ##{index + 1} '#{token}'") unless token =~ /\d+|[*-\/+^%]/
       # if this is an operand, add it to the stack
       if token =~ /\d/
         @stack << token.to_f
