@@ -46,4 +46,16 @@ describe ReversePolishCalculator do
 
   end
 
+  it "handles a bunch of stuff" do
+    expect(@calc.parse("
+         5
+         7
+       + 18
+       * 2
+       / 2
+       /
+    ")).to eq(54)
+  end
+
+
 end
