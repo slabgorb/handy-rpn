@@ -34,7 +34,16 @@ describe ReversePolishCalculator do
   end
 
   it "handles on sloppy syntax in non-strict mode" do
-    expect(@calc.parse("2 2 2 * * 3 +")).to eq(11)
+    expect{ @calc.parse("2 2 2 * * 3 +")}.to raise_error("Invalid Reverse Polish Notation format: not enough operands at token #5 '*'")
+  end
+
+  it "handles multiline input" do
+    expect(@calc.parse("
+     1
+     1
+     +
+    ")).to eq(2)
+
   end
 
 end
