@@ -44,9 +44,9 @@ A Handy (see what I did there) Reverse Polish Notation Calculator!
 
     handy-rpn|master⚡ ⇒ ./handy-rpn
         Enter calculation, you may use multiple lines.
-        To calculate, enter c on a line by itself,
-        to quit, enter 'q',
-        for this help text, enter ?
+        To calculate, enter #{CALC_FLAG} by itself on a line,
+        to quit, enter 'q' by itself on a line,
+        For this help text, enter '?' by itself on a line.
     New calculation:
     2 3 + 5 + 10 -
     c
