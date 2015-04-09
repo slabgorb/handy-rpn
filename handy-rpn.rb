@@ -29,9 +29,9 @@ class Calculator
   def self.instructions
     puts <<-END_INSTRUCTIONS
     Enter calculation, you may use multiple lines.
-    To calculate, enter #{CALC_FLAG} on a line by itself,
-    to quit, enter 'q',
-    for this help text, enter ?
+    To calculate, enter #{CALC_FLAG} by itself on a line,
+    to quit, enter 'q' by itself on a line,
+    For this help text, enter '?' by itself on a line.
     END_INSTRUCTIONS
   end
 
