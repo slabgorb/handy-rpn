@@ -1,5 +1,20 @@
 #!/usr/bin/env ruby
 
+# == Synopsis
+#   Handy Reverse Polish Calculator
+#   Used for Handy.com coding test
+#
+#
+# == Usage
+#   handy-rpn [options]
+#
+#   For help use: handy-rpn -h
+#
+# == Options
+#   -h, --help          Displays help message
+#
+
+
 require_relative "lib/handy-rpn.rb"
 
 class Calculator
