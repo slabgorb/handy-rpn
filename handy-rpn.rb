@@ -54,7 +54,7 @@ class Calculator
           when CALC_FLAG
             break
           when HELP_FLAG
-            self.class.instructions
+            instructions
           else
             rpn << buff
           end
