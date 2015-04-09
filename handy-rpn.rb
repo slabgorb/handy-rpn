@@ -57,10 +57,6 @@ class Calculator
             instructions
           else
             rpn << buff
-            if rpn.join == ''
-              puts "Done"
-              exit
-            end
           end
         end
         puts "Calculation: (#{rpn.join(' ').gsub(/\(|\)/,'')}) Answer: " + pretty_format(@calc.calculate(rpn.join(" ")))
