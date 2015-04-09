@@ -1,6 +1,6 @@
 # handy-rpn
 
-A Handy (see what I did there) Reverse Polish Notation Calculator!
+A Handy (see what I did there) Reverse Polish Notation Calculator! I used a similar convention to the Unix rpn tool where the calculation occurs when you enter a special character on a new line, letting you construct the statement across multiple lines.
 
 
 
