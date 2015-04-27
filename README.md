@@ -1,18 +1,15 @@
-# handy-rpn
-
-A Handy (see what I did there) Reverse Polish Notation Calculator! I used a similar convention to the Unix rpn tool where the calculation occurs when you enter a special character on a new line, letting you construct the statement across multiple lines.
-
+# rpn
 
 
 ## Tests
 
-    git clone https://github.com/slabgorb/handy-rpn.git
-    cd handy-rpn
+    git clone https://github.com/slabgorb/rpn.git
+    cd rpn
     bundle install
     bundle exec rspec -fd
 
 
-    HandyRPN
+    RPN
       handles problems with no input
       handles problems with garbage input
       handles problem with invalid operand count
@@ -36,13 +33,13 @@ A Handy (see what I did there) Reverse Polish Notation Calculator! I used a simi
 
 ## Running Application
 
-    git clone https://github.com/slabgorb/handy-rpn.git
-    cd handy-rpn
-    ./handy-rpn
+    git clone https://github.com/slabgorb/rpn.git
+    cd rpn
+    ./rpn
 
 ## Example Run
 
-    handy-rpn|master⚡ ⇒ ./handy-rpn
+    rpn|master⚡ ⇒ ./rpn
         Enter calculation, you may use multiple lines.
         To calculate, enter 'c' by itself on a line,
         to quit, enter 'q' by itself on a line,
