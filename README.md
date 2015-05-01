@@ -1,35 +1,6 @@
 # rpn
 
 
-## Tests
-
-    git clone https://github.com/slabgorb/rpn.git
-    cd rpn
-    bundle install
-    bundle exec rspec -fd
-
-
-    RPN
-      handles problems with no input
-      handles problems with garbage input
-      handles problem with invalid operand count
-      handles problem with operand after final operator
-      does addition (+)
-      does subtraction (-)
-      does multiplication (*)
-      does division (/)
-      does modulo (%)
-      does exponents (hehe sneaky!) (**)
-      does multiple operations
-      fudges sloppy syntax in non-strict mode
-      handles (with exception) on sloppy syntax in strict mode
-      handles multiline input
-      handles repeated operands in strict mode
-      handles a fancier example
-      handles floats
-
-    Finished in 0.00508 seconds (files took 0.14728 seconds to load)
-    17 examples, 0 failures
 
 ## Running Application
 
